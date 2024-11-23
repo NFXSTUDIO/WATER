@@ -1,0 +1,5 @@
+you will need
+https://imagemagick.org/script/download.php
+
+magick mogrify -resize 50% -format jpg *.heic
+

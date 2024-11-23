@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GIF remplacé par une image</title>
+    <style>
+        img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <img id="myGif" src="cimgs/game_over.gif" alt="Mon GIF animé">
+    <audio id="monSon" src="cimgs/game_over.mp3"></audio>
+    <img id="myImage" src="cimgs/game_over.jpg" alt="Mon image statique" style="display: none;">
+    <script>
+        const gif = document.getElementById('myGif');
+        const image = document.getElementById('myImage');
+        let playCount = 0;
+
+        gif.addEventListener('load', () => {
+            // Initialisation du compteur de lectures
+            playCount = 0;
+        });
+
+        gif.addEventListener('animationend', () => {
+            playCount++;
+            if (playCount === 3) {
+                // Remplacer le GIF par l'image
+                gif.style.display = 'none';
+                image.style.display = 'block';
+            }
+        });
+
+        // Fonction pour redimensionner le GIF
+        function resizeGif() {
+            gif.style.width = window.innerWidth + 'px';
+            gif.style.height = window.innerHeight + 'px';
+        }
+
+        // Appeler la fonction au chargement de la page
+        resizeGif();
+
+        // Appeler la fonction à chaque redimensionnement de la fenêtre
+        window.addEventListener('resize', resizeGif);
+
+        const son = document.getElementById('monSon');
+        let compteur = 0;
+
+        function jouerSon() {
+            if (compteur < 3) {
+                son.playbackRate = 1.5;
+                son.play();
+                compteur++;
+            }
+        }
+
+        son.addEventListener('ended', jouerSon);
+        jouerSon(); // Pour lancer la lecture du premier son
+    </script>
+</body>
+</html>

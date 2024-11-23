@@ -1,0 +1,38 @@
+body {
+    background-image: url('icon/background.jpg');
+    background-size: cover; /*Pour ajuster l'image à toute la zone */
+    background-repeat: no-repeat; /* Pour éviter les répétitions */
+}
+
+img {
+    width: 1500px;
+    height: 600px;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+video{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;    
+}
+
+button {
+  background-image: url('icon/button_img.png');
+  background-size:cover; /* Adjusts the image to cover the entire button */
+  background-position: center; /* Centers the image within the button */
+  height:50px;
+  width: 135px;
+  border: none; /* Removes the default button border */
+  cursor: pointer;
+  font-size: 20px;
+  color:white;
+  margin: 10px;
+}
+
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* For vertical centering */
+  text-align: center;
+}

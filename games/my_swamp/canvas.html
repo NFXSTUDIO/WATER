@@ -1,0 +1,146 @@
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+<style>
+{ margin:0; padding:0; } /* to remove the top and left whitespace */
+html, body { width:100%; height:100%; } /* just to be sure these are full screen*/
+
+canvas { display:block; } /* To remove the scrollbars */
+</style>
+
+</head>
+<body>
+
+<canvas id="main_canvas"></canvas>
+
+<script>
+
+var direction = "N"
+var x = 0
+var y = 0
+var current_img ;
+var current_state = '0,0 N'
+var our_game_data = null;
+var bk_audio;
+
+function make_state_key(){
+    return '' + x + ',' + y + ' ' + direction
+}
+
+(function() {
+  const canvas = document.getElementById('main_canvas');
+  const context = canvas.getContext('2d');
+
+  // resize the canvas to fill browser window dynamically
+  window.addEventListener('resize', resizeCanvas, false);
+        
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+                
+    drawStuff(); 
+  }
+  
+  resizeCanvas();
+        
+  function drawStuff() {
+    try {
+    draw_image_on_canvas(current_img);
+    }catch {}
+  }
+})();
+
+function draw_image_on_canvas(img){
+        var c = document.getElementById("main_canvas");
+        var ctx = c.getContext("2d");
+        current_img = img
+        ctx.drawImage(img, 0, 0, window.innerWidth, window.innerHeight);
+}
+
+function visit_state(){
+    console.log(current_state);
+    draw_image_on_canvas(  our_game_data[current_state]["img_o"] );
+}
+
+function load_all_imgs(){
+    console.log(our_game_data);
+    for (const property in our_game_data) {
+        console.log("init load" + property);
+        if( our_game_data[property]["img"] != null){
+            console.log(our_game_data[property]["img"])
+            our_game_data[property]["img_o"] = new Image()
+            our_game_data[property]["img_o"].src = our_game_data[property]["img"]
+            console.log("init load");
+        }
+    }
+
+}
+
+document.addEventListener('keydown', (e) => {
+  switch (e.key) {
+    case "ArrowLeft":
+        if( direction == 'N'){
+            direction = 'W'
+        }else 
+        if( direction == 'W'){
+            direction = 'S'
+        }else
+        if( direction == 'S'){
+            direction = 'E'
+        }else
+        if( direction == 'E'){
+            direction = 'N'
+        }
+        break;
+    case "ArrowRight":
+        if( direction == 'N'){
+            direction = 'E'
+        }else 
+        if( direction == 'E'){
+            direction = 'S'
+        }else
+        if( direction == 'S'){
+            direction = 'W'
+        }else
+        if( direction == 'W'){
+            direction = 'N'
+        }
+        break;
+    case "ArrowUp":
+        // Up pressed
+        y = y + 1;
+        if (our_game_data[make_state_key()] == null){
+            y = y - 1;
+        }
+        break;
+    case "ArrowDown":
+        // Down pressed
+        y = y - 1
+        if (our_game_data[make_state_key()] == null){
+            y = y + 1
+        }
+        break;
+    }
+  current_state = make_state_key();
+  console.log(current_state);
+  visit_state();
+});
+
+$( document ).ready(function() {
+    setTimeout(function(){
+
+        $.getJSON( "mm1.json", function( data ) {
+            console.log(data);
+            our_game_data = data;
+            load_all_imgs();
+            setTimeout(visit_state, 1000);
+        });
+      }, 1000);    
+
+});
+
+</script>
+</body>
+
+</html>

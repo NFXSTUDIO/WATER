@@ -1,0 +1,129 @@
+<!Doctype html>
+<html>
+	<head>
+		<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+		<title>Gravity Falls : The Grimoire of Shadows</title>
+	    <link rel="icon" href="icon/image.ico">
+	    <link rel="stylesheet" href="style.css">
+	</head>
+	
+	<body>
+		<div id="main_text"></div>
+		<video  id="main_video" autoplay></video>
+		<img id="main_image" src="" />
+		<div id="button"></div>
+
+		<script>
+
+		var current_state = 'start';
+		var our_game_data = null;
+		var bk_audio;
+		let m_audio = null;
+
+		function visit_state(){
+
+
+		    var video = $('#main_video')[0];
+		    video.pause();
+		    $('#main_video').hide();
+
+		    if( our_game_data[current_state]['mp4'] != null){
+		        $('#main_video').show();
+		        video.src = our_game_data[current_state]['mp4'];
+		        video.load();
+		        video.play();
+		    }
+
+		    if( our_game_data[current_state]['text'] != null){
+		        $('#main_text').html(our_game_data[current_state]['text']);
+		        $('#main_text').show(); 
+		    }else{
+		        $('#main_text').html('');
+		        $('#main_text').hide(); 
+		    }
+
+		    if( our_game_data[current_state]['img'] != null){
+		        $("#main_image").attr("src",our_game_data[current_state]['img']);
+		        $('#main_image').show(); 
+		    }else{
+		        $('#main_image').hide(); 
+		    }
+
+		    if( our_game_data[current_state]['sound'] != null){
+		        var audio = new Audio(our_game_data[current_state]['sound']);
+		        audio.play();
+		    }
+
+		    
+		    if( our_game_data[current_state]['back_sound'] != null){
+		        if( our_game_data[current_state]['back_sound'] == ''){
+		            bk_audio.pause();
+		        }
+		        else{
+		        	backsound = our_game_data[current_state]['back_sound']
+		        	bk_audio = new Audio(backsound[0]['url']);
+		        	bk_audio.play();
+		        	bk_audio.volume = backsound[0]['volume']
+		        }
+		        bk_audio.addEventListener('timeupdate', function(){
+		            var buffer = .44
+		            if(this.currentTime > this.duration - buffer){
+		            this.currentTime = 0
+		            this.play()
+		        }
+		        });
+		        
+		    }
+		    
+		    if( our_game_data[current_state]['music_sound'] != null){
+		    	if (m_audio && m_audio.paused === false) {
+        			m_audio.pause();
+    			}
+		        if( our_game_data[current_state]['music_sound'] == ''){
+		            m_audio.pause();
+		        }
+		        else{
+		        	music = our_game_data[current_state]['music_sound']
+			        m_audio = new Audio(music[0]['url']);
+			        m_audio.play();
+			        m_audio.volume = music[0]['volume'];
+		        }
+		        
+
+		        m_audio.addEventListener('timeupdate', function(){
+		            var buffer = .44
+		            if(this.currentTime > this.duration - buffer){
+		            this.currentTime = 0
+		            this.play()
+		        }
+		        });
+		        
+		    }
+		    
+		    if( our_game_data[current_state]['next_state'] != null){
+		        options = our_game_data[current_state]['next_state']
+		        options_len = options.length
+		        build_html= "";
+		        for( i =0 ;i < options_len; i++){
+		            build_html += "<button onclick=' current_state = " + '"' + options[i]['next_state'] +'";'+ "visit_state();" + "'"+ ">" + options[i]['text']+ "</button> <br>\n";
+		        }
+		        console.log(build_html);
+		        $('#button').html(build_html);
+		    }
+		    
+		}
+
+		$( document ).ready(function() {
+		    setTimeout(function(){
+
+		        $.getJSON( "game_map.json", function( data ) {
+		            our_game_data = data;
+		            visit_state();
+		        });
+		      }, 1000);    
+
+		});
+
+		</script>
+	</body>
+</html>

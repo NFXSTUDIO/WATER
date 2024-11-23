@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Canvas Réactif avec Audio</title>
+</head>
+<body>
+  <canvas id="myCanvas"></canvas>
+  <audio id="myAudio" src="cimgs/game_over.mp3" loop></audio>
+  
+  <script>
+    const canvas = document.getElementById('myCanvas');
+    const ctx = canvas.getContext('2d');
+    const image = new Image();
+    image.src = 'cimgs/img_intro.jpg'; // Remplacez par le chemin de votre image
+    
+    image.onload = () => {
+      // Redimensionner le canvas à chaque changement de taille de la fenêtre
+      window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        drawImage();
+      });
+
+      // Dessiner l'image centrée sur le canvas
+      function drawImage() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const x = (canvas.width - image.width) / 2;
+        const y = (canvas.height - image.height) / 2;
+        ctx.drawImage(image, x, y);
+      }
+
+      // Dessiner l'image pour la première fois
+      drawImage();
+      playAudio();
+    };
+  </script>
+</body>
+</html> 

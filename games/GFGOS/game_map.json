@@ -1,0 +1,1311 @@
+{
+    "start": {
+        "text": "<h1>Gravity Falls : The Grimoire of Shadows</h1>",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Start",
+                "next_state": "intro",
+                "input": "Y"
+            }
+        ]
+    },
+    "intro": {
+        "back_sound": [
+            {
+                "url":"sound/Intro_sound.mp3",
+                "volume":"0.3"
+            }
+        ],
+        "text": "<h3>Gravity Falls, once a peaceful Oregon town, has never really regained its pre-Weirdmaggedon serenity. Thirty years after the terrible dimensional invasion, the scars are still visible. The inhabitants, marked by the events, live in an atmosphere of mistrust and mystery.</h3>",
+        "img": "image/img_intro1.gif",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Continue",
+                "next_state": "intro1",
+                "input": "Y"
+            }
+        ]
+    },
+    "intro1": {
+        "text": "<h3>Paranormal phenomena, although less frequent, are not completely absent. Local legends speak of shadows prowling the woods, strange creatures emerging from other dimensions and dark forces seeking to regain control of the town.</h3>",
+        "img": "image/img_intro2.gif",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Continue",
+                "next_state": "intro2",
+                "input": "Y"
+            }
+        ]
+    },
+    "intro2": {
+        "text": "<h3>It is in this troubled context that a strange artifact comes to upset the fragile balance of Gravity Falls. A book, written by the hand of Bill Crypto himself, has mysteriously surfaced. The pages, filled with riddles and obscure symbols, seem to contain the keys to an immense power.</h3>",
+        "img": "image/img_intro3.gif",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Continue",
+                "next_state": "intro3",
+                "input": "Y"
+            }
+        ]
+    },
+    "intro3": {
+        "text": "<h3>However, an organization called 'The Protectors of Gravity Falls' has gotten its hands on the book and vowed to keep it out of the hands of the dark forces. But will simply protecting it be enough? The triangular demon is cunning and its arms extend far beyond the limits of our world.</h3>",
+        "img": "image/img_intro4.jpg",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Continue",
+                "next_state": "gstart",
+                "input": "Y"
+            }
+        ]
+    },
+    "gstart": {
+        "text": "<h3>You are inside the headquarter of the organization. What do you want to do ?</h3>",
+        "img": "image/hall.png",
+        "back_sound": "",
+        "music_sound":[
+            {
+                "url": "music/music_bunker.mp3",
+                "volume":0.6
+            }
+        ],
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Go up",
+                "next_state": "atelier",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Go left",
+                "next_state": "entrepot",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Go right",
+                "next_state": "warroom",
+                "input": "Y"
+            },
+            {
+                "text": "Go down",
+                "next_state": "entrance_1",
+                "input": "X"
+            },
+            {
+                "type": "button",
+                "text": "Search",
+                "next_state": "book",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Speak with the Dean",
+                "next_state": "dean",
+                "input": "Y"
+            }
+        ]
+    },
+    "dean": {
+        "text": "Hello my young diciple, do you need something",
+        "img": "image/dean.png",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "You are you ?",
+                "next_state": "dean_no",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "I have some question",
+                "next_state": "dean_q",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Nothing",
+                "next_state": "dean_leave",
+                "input": "Y"
+            }
+        ]
+    },
+    "dean_no": {
+        "text": "I am your mother to all. *This answer is not what you expected but you are satisfied with it*",
+        "img": "image/dean.png",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "I have some question",
+                "next_state": "dean_q",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Nothing",
+                "next_state": "dean_leave",
+                "input": "Y"
+            }
+        ]
+    },
+    "dean_q": {
+        "text": "Ask me what you want to know but the answer to your questions is already within you.",
+        "img": "image/dean.png",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "What is the Cryptoist ?",
+                "next_state": "dean_c",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "History of the organisation",
+                "next_state": "dean_h",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Information about the book of Bill",
+                "next_state": "dean_b",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Nothing",
+                "next_state": "dean_leave",
+                "input": "Y"
+            }
+        ]
+    },
+    "dean_c": {
+        "text": "She tells you the story of the Cryptoists, a story that seems like propaganda to you. The more the dean talks about this cult, the more you realize that she is hiding something from you about it. Perhaps finding the organization's book would allow you to learn more about this cult.",
+        "img": "image/dean.png",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "I have question",
+                "next_state": "dean_q",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Nothing",
+                "next_state": "dean_leave",
+                "input": "Y"
+            }
+        ]
+    },
+    "dean_b": {
+        "text": "One of our patrols was near Bill's statue to reinforce the seal around it when the book appeared in the statue's hand, as a last contract. They took it and locked it in our vault.*When she talks about the subject, you find her very scared as if something was wrong, you tell yourself that taking a tour of the vault to learn more would be important.*",
+        "img": "image/dean.png",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "I have question",
+                "next_state": "dean_q",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Nothing",
+                "next_state": "dean_leave",
+                "input": "Y"
+            }
+        ]
+    },
+    "dean_leave": {
+        "text": "Go my child and may the author come to your aid.",
+        "img": "image/dean.png",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Leave her",
+                "next_state": "gstart",
+                "input": "Y"
+            }
+        ]
+    },
+    "dean_h": {
+        "text": "It tells you the story of the organization that begins at the first Weirdmaggedon, an organization created by the survivors of the time in order to stop Bill. Since all this time, the organization protects the city but also the world of Bill. You are impressed.",
+        "img": "image/dean.png",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "I have question",
+                "next_state": "dean_q",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Nothing",
+                "next_state": "dean_leave",
+                "input": "Y"
+            }
+        ]
+    },
+    "atelier": {
+        "text": "You are inside the workshopp. Here is where all the weapon and tools of the organisation is made. What do you want to do ?",
+        "img": "image/atelier.png",
+        "back_sound": [
+            {
+                "url": "sound/ambiance_atelier.mp3",
+                "volume":1.0
+            }
+        ],
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Speak with the black-smith",
+                "next_state": "blacksmith",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Leave the workshopp",
+                "next_state": "gstart",
+                "input": "Y"
+            }
+        ]
+    },
+    "blacksmith": {
+        "text": "Hello, how are you ? Did you want something from me ?",
+        "img": "image/forgerons.png",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Yes, a new weapon please !",
+                "next_state": "blacksmith_weapon",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "No, nothing",
+                "next_state": "blacksmith_bye",
+                "input": "Y"
+            }
+        ]
+    },
+    "blacksmith_weapon": {
+        "text": "I don't have anything to build a weapon, the supply is blocked ! Do you want something else ?",
+        "img": "image/forgerons.png",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "No, nothing",
+                "next_state": "blacksmith_bye",
+                "input": "Y"
+            }
+        ]
+    },
+    "blacksmith_bye": {
+        "text": "Then see you an other time !",
+        "img": "image/forgerons.png",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Leave him alone",
+                "next_state": "gstart",
+                "input": "Y"
+            }
+        ]
+    },
+    "warroom": {
+        "text": "You are inside the war room. Here is where the organisation decide the strategie to protect Gravity Falls. What do you want to do ?",
+        "img": "image/salle de guerre.png",
+        "back_sound": "",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Search",
+                "next_state": "map",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Leave the war room",
+                "next_state": "gstart",
+                "input": "Y"
+            }
+        ]
+    },
+    "map": {
+        "text": "You find a map ! This is verry usefull to not be lost in the forest. You put the map in your inventory.",
+        "img": "image/map.png",
+        "back_sound": "",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Continue",
+                "next_state": "warroom",
+                "input": "Y"
+            }
+        ]
+    },
+    "entrepot": {
+        "text": "You are inside the supply-room. Here is where the organisation stock food and water in case of a new apocalypse. What do you want to do ?",
+        "img": "image/entrepot.png",
+        "back_sound": "",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Search",
+                "next_state": "food_water",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Go up",
+                "next_state": "vault",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Leave supply room",
+                "next_state": "gstart",
+                "input": "Y"
+            }
+        ]
+    },
+    "food_water": {
+        "text": "You find water and food. You put it all in your inventory.",
+        "img": "image/supply.png",
+        "back_sound": "",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Continue",
+                "next_state": "entrepot",
+                "input": "Y"
+            }
+        ]
+    },
+    "vault": {
+        "text": "You are inside the vault room. Here is where the organisation stock all the valuable of the organisation. What do you want to do ?",
+        "img": "image/vault.png",
+        "back_sound": "",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Speak to the guard",
+                "next_state": "vault_guard",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Leave the room",
+                "next_state": "entrepot",
+                "input": "Y"
+            }
+        ]
+    },
+    "vault_guard": {
+        "text": "Hey what are you doing here ?",
+        "img": "image/vault_guard.png",
+        "back_sound": "",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "I have some question",
+                "next_state": "guard_q1",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "I check that you do your job.",
+                "next_state": "guard_leave",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Do you know who you speak to ?",
+                "next_state": "guard_angry",
+                "input": "Y"
+            }
+        ]
+    },
+    "guard_q1": {
+        "text": "Ok, what do you want to know ?",
+        "img": "image/vault_guard.png",
+        "back_sound": "",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "The dean told me there is an issue with the vault. What happen ?",
+                "next_state": "guard_q2",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "The dean told me that you made a big mistake you piece of shit and I'm here to fix it.",
+                "next_state": "guard_angry",
+                "input": "Y"
+            }
+        ]
+    },
+    "guard_q2": {
+        "text": "Ok then if the dean send you. The Bill cult steal the Book of Bill from our vault and we don't know where there go and do with it.",
+        "img": "image/vault_guard.png",
+        "back_sound": "",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Ok then I will speak with the dean to find a solution.",
+                "next_state": "entrance_leave",
+                "input": "Y"
+            }
+        ]
+    },
+    "guard_leave": {
+        "text": "The guard seem to be angry against you. You decide to leave.",
+        "img": "image/vaul_guard.png",
+        "back_sound": "",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Leave the guard",
+                "next_state": "vault",
+                "input": "Y"
+            }
+        ]
+    },
+    "guard_angry": {
+        "text": "You make the guard very angry against you. He take is weapon and shoot you in the head.",
+        "img": "image/vault_guard.png",
+        "back_sound": "",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Game over",
+                "next_state": "restart",
+                "input": "Y"
+            }
+        ]
+    },
+    "entrance_1": {
+        "text": "You are at the entrance of the bunker. Here is where you can leave the organisation. What do you want to do ?",
+        "img": "image/entrance.png",
+        "back_sound": "",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Speak with the scout",
+                "next_state": "scout",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Leave the entrance",
+                "next_state": "gstart",
+                "input": "Y"
+            }
+        ]
+    },
+    "scout": {
+        "text": "Hello, what do you want to know ?",
+        "img": "image/scout.png",
+        "back_sound": "",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "I look for all the information you have on the Bill cult.",
+                "next_state": "cult_info",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Nothing",
+                "next_state": "scout_bye",
+                "input": "Y"
+            }
+        ]
+    },
+    "cult_info": {
+        "text": "Actually we don't have a lot information about the cult. We don't even know where they hide. But actually, I hear someone said that a old man know something. I like to stay at the Greasy dinner every time because he can drink for free. Also the police have note about the cult but we didn't access it for know.",
+        "img": "image/scout.png",
+        "back_sound": "",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Thanks for all the information",
+                "next_state": "scout_bye",
+                "input": "Y"
+            }
+        ]
+    },
+    "scout_bye": {
+        "text": "You welcome, I hope I help you !",
+        "img": "image/scout.png",
+        "back_sound": "",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Leave the scout",
+                "next_state": "entrance_1",
+                "input": "Y"
+            }
+        ]
+    },
+    "book": {
+        "text": "You find a book you speak about the origin of the organisation. You learned that the organisation wath created during the Weirdmaggedon. You found also on a torn pages information about the Cryptoist and found out that at the beginning the came from your organisation. What do you want to do ?",
+        "img": "image/book.png",
+        "back_sound": "",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Don't tell anything about what you learned",
+                "next_state": "book_leave",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Make a revolution !",
+                "next_state": "book_death",
+                "input": "Y"
+            }
+        ]
+    },
+    "book_leave": {
+        "text": "The information that you find didn't change your will. It actually reinforced it and you really want to protect the organisation know against this plague.",
+        "img": "image/book.png",
+        "back_sound": "",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Leave",
+                "next_state": "gstart",
+                "input": "Y"
+            }
+        ]
+    },
+    "book_death": {
+        "text": "You decide to do a revolution to stop the organisation, but they consider you as a Cryptoist traitor. The dean decide to sacriface you to make sure that the Cryptoist will not interfere with the organisation",
+        "img": "image/book.png",
+        "back_sound": "",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Game over",
+                "next_state": "restart",
+                "input": "Y"
+            }
+        ]
+    },
+    "entrance_leave": {
+        "text": "When you leave the bunker, you find out that it's under the mystery shack, the famous building of gruncle Stan. You think about your futur mission and you know what you have to do. You have to make sure that the Cryptoist don't use the book of Bill and will never used it in the futur. But you don't know anythings about the location of the cult. What do you want to do ?",
+        "img": "image/leaving.png",
+        "back_sound": "",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Go to the police station",
+                "next_state": "police_station",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Go to the Greasy dinner",
+                "next_state": "GD",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Go to the watching tower",
+                "next_state": "wt",
+                "input": "Y"
+            }
+        ]
+    },
+    "police_station": {
+        "text": "You decide to go to the police station to have more information. What do you want to do ?",
+        "img": "image/police_station.png",
+        "back_sound":[
+            {
+                "url":"sound/police_ambiance.mp3",
+                "volume": 1.0
+            }
+        ],
+        "music_sound":[
+            {
+                "url":"music/city_song.mp3",
+                "volume": 0.3   
+            }
+        ],
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Search for information",
+                "next_state": "info_bad",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Talk with the police officer",
+                "next_state": "policeman",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Go somewhere else",
+                "next_state": "swe",
+                "input": "Y"
+            }
+        ]
+    },
+    "info_bad": {
+        "text": "You look to glan any information inside the police station but you didn't find anything. You think if you speak with the police officer you can maybe have more information.",
+        "img": "image/police_station.png",
+        "back_sound": "",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Talk with the police officer",
+                "next_state": "policeman",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Go somewhere else",
+                "next_state": "swe",
+                "input": "Y"
+            }
+        ]
+    },
+    "policeman": {
+        "text": "Hello sir. What is your emergency ?",
+        "img": "image/policeman.png",
+        "back_sound": "",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "I'm from the organisation, we looking for any information that you may have on the cult named 'Cryptoist', can you help us ?",
+                "next_state": "policeman1",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Give me all your weapon, I need them !",
+                "next_state": "policeman_death",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Nothing",
+                "next_state": "policeman_leave",
+                "input": "Y"
+            }
+        ]
+    },
+    "policeman1": {
+        "text": "I will help you because the organisation help me during the Weirdmaggeddon event. To be honest, whe don't have a lot of information about the cult. We know that there is strange things happenning here since a few days. Our patroll didn't come back from this place (he show a place on a map) when we try too send someone so maybe you have to go here.",
+        "img": "image/policeman.png",
+        "back_sound": "",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Thanks for your help officer.",
+                "next_state": "forest",
+                "input": "Y"
+            }
+        ]
+    },
+    "policeman_death": {
+        "text": "*He calls is collegue* Arrest this man ! They arrest you and go to prison. After few days to wait, the Weirdmaggedon came back. You failed your mission.",
+        "img": "image/policeman.png",
+        "back_sound": "",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Game over",
+                "next_state": "restart",
+                "input": "Y"
+            }
+        ]
+    },
+    "policeman_leave": {
+        "text": "If you need anything else, come back later.",
+        "img": "image/policeman.png",
+        "back_sound": "",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Leave",
+                "next_state": "police_station",
+                "input": "Y"
+            }
+        ]
+    },
+    "swe": {
+        "text": "You decide to go somewhere else.",
+        "img": "image/leaving.png",
+        "back_sound": "",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Go to the police station",
+                "next_state": "police_station",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Go to the Greasy dinner",
+                "next_state": "GD",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Go to the watching tower",
+                "next_state": "wt",
+                "input": "Y"
+            }
+        ]
+    },
+    "GD": {
+        "text": "You decide to go to the Greasy dinner, the main restaurant of the city. What do you want to do ?",
+        "img": "image/GD.png",
+        "back_sound": [
+            {
+                "url":"sound/ambiance_resto.mp3",
+                "volume": 1.2
+            }
+        ],
+        "music_sound":[
+            {
+                "url":"music/city_song.mp3",
+                "volume": 0.3
+            }
+        ],
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Eat food",
+                "next_state": "food",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Speak with the strange man",
+                "next_state": "strange_man",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Go somewhere else",
+                "next_state": "swe",
+                "input": "Y"
+            }
+        ]
+    },
+    "food": {
+        "text": "You decide to take food at the restaurant. You think that the food is preaty nice.",
+        "img": "image/GD.png",
+        "back_sound": "",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Speak with the strange man",
+                "next_state": "strange_man",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Go somewhere else",
+                "next_state": "swe",
+                "input": "Y"
+            }
+        ]
+    },
+    "strange_man": {
+        "text": "When you arrive at his table, the person in front of you seem totaly crazy. He says : 'Coyotes are coming for our sweetbreads, be carefull'",
+        "img": "image/strange_man.png",
+        "back_sound": "",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "What do you mean ?",
+                "next_state": "strange_man2",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Leave him",
+                "next_state": "GD",
+                "input": "Y"
+            }
+        ]
+    },
+    "strange_man2": {
+        "text": "I go in the deep forest to see my friend Franck and instead of seing him I saw ...... a lot of zombie guarding a place inside the forest. *start to say intelligeble things*",
+        "img": "image/strange_man.png",
+        "back_sound": "",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Leave him",
+                "next_state": "leave",
+                "input": "Y"
+            }
+        ]
+    },
+    "leave": {
+        "text": "You decide to leave the strange man. When you leave him it's seam under big crises and you decide to live him alone.",
+        "img": "image/strange_man.png",
+        "back_sound": "",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Continue",
+                "next_state": "forest",
+                "input": "Y"
+            }
+        ]
+    },
+    "wt": {
+        "text": "When you arrive at the watching tower, it seem that there is nobody inside. You thinks this is strange, they should have at least one forest ranger inside. You decide to go inside.",
+        "img": "image/wt.jpeg",
+        "back_sound": [
+            {
+                "url":"sound/forest_ambiance.mp3",
+                "volume": 0.8
+            }
+        ],
+        
+        "music_sound":[
+            {
+                "url":"music/city_song.mp3",
+                "volume": 0.3
+            }
+        ],
+
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Look at the forest",
+                "next_state": "wt2",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Go somewhere else",
+                "next_state": "swe",
+                "input": "Y"
+            }
+        ]
+    },
+    "wt2": {
+        "text": "When you look at the forest at the first singth, you didn't see anything. You decide to take watchgoogle and you see some tree moving and some smoke due to potential fire.",
+        "img": "image/wt.jpeg",
+        "back_sound": "",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Go to this place",
+                "next_state": "forest",
+                "input": "Y"
+            }
+        ]
+    },
+    "forest": {
+        "text": "You arrive into the forest where you think you need to go. You here strange noises. What do you want to do ?",
+        "img": "image/forest.png",
+        "back_sound": [
+            {
+                "url": "sound/forest_dark.mp3",
+                "volume":0.1
+            }
+        ],
+        "music_sound" : [
+            {
+                "url":"music/forest song.mp3",
+                "volume": 0.4
+            }
+        ],
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Hide",
+                "next_state": "hide",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Continue into the forest",
+                "next_state": "forest_die",
+                "input": "Y"
+            }
+        ]
+    },
+    "hide": {
+        "text": "You find a place to hide behind some tree. After a few time, a group of zombie start to walk were you suppose to be one minute before.",
+        "img": "image/forest_zombie.png",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Attack the zombie",
+                "next_state": "forest_die",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Wait more",
+                "next_state": "hide2",
+                "input": "Y"
+            }
+        ]
+    },
+    "hide2": {
+        "text": "You wait. After a short time, the zombie left the forest. What do you do ?",
+        "img": "image/forest.png",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Go where the zombies come from",
+                "next_state": "crypto_area",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Continue into the forest",
+                "next_state": "forest_die2",
+                "input": "Y"
+            }
+        ]
+    },
+    "forest_die": {
+        "text": "The zombie byte you and you become a zombie. You forgot about your mission and think only about one things, eat brains.",
+        "img": "image/zombie.png",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Game over",
+                "next_state": "restart",
+                "input": "Y"
+            }
+        ]
+    },
+    "forest_die2": {
+        "text": "You are lost inside the forest. After a few days inside it you become crazy and die from desidratation.",
+        "img": "image/forest.png",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Game over",
+                "next_state": "restart",
+                "input": "Y"
+            }
+        ]
+    },
+    "crypto_area": {
+        "text": "You come to a clearing and see a structure that shouldn't be there. What do you do?",
+        "img": "image/cult.png",
+        "back_sound": "",
+        "music_sound" : [
+            {
+                "url":"music/cult_song1.mp3",
+                "volume": 0.2
+            }
+        ],
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Go inside",
+                "next_state": "entrance_cult",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Go back into the forest",
+                "next_state": "forest_die2",
+                "input": "Y"
+            }
+        ]
+    },
+    "entrance_cult": {
+        "text": "When you enter, there is no guard waiting for you, you say to yourself that this is strange.",
+        "img": "image/cult2.png",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Go in the first room",
+                "next_state": "bed_cult",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Go in the second room",
+                "next_state": "corridor_cult",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Go in the third room",
+                "next_state": "kitchen_cult",
+                "input": "Y"
+            }
+        ]
+    },
+    "bed_cult": {
+        "text": "When you enter, you see a bedroom, probably the bedroom for the chef of the cult.",
+        "img": "image/cult2.png",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Leave the room",
+                "next_state": "entrance_cult",
+                "input": "Y"
+            }
+        ]
+    },
+    "kitchen_cult": {
+        "text": "When you enter, you see the oven and all the stuff for cooking but nobody inside.",
+        "img": "image/cult2.png",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Leave the room",
+                "next_state": "entrance_cult",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Eat something",
+                "next_state": "eat_cult",
+                "input": "Y"
+            }
+        ]
+    },
+    "eat_cult": {
+        "text": "You eat one of the soup. You feel better now.",
+        "img": "image/cult2.png",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Leave the room",
+                "next_state": "entrance_cult",
+                "input": "Y"
+            }
+        ]
+    },
+    "corridor_cult": {
+        "text": "The further you go into the place, the more the absence of people obsesses you. You tell yourself that it could only be due to one thing, Bill's imminent return. You decide to quicken your pace.",
+        "img": "image/cult2.png",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Leave the room",
+                "next_state": "entrance_cult",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Open the next door",
+                "next_state": "main_cult_die",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Open carefully the next door",
+                "next_state": "main_cult",
+                "input": "Y"
+            }
+        ]
+    },
+    "main_cult_die": {
+        "text": "When you open the door, you see all the cult inside the room praying for Bill's return. When they see you, they run after you and you don't even have the time to start runnign that they grab you in the room and sacriface yourself in the name of their master Bill Crypto",
+        "img": "image/cult3.png",
+        "back_sound":"",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Game Over",
+                "next_state": "restart",
+                "input": "Y"
+            }
+        ]
+    },
+    "main_cult": {
+        "text": "When you open carefully the door, you see all the cult inside the room praying for Bill's return. However, you see something strange into the room. They don't have the Book of Bill. What do you do ?",
+        "img": "image/cult3.png",
+        "back_sound" : [
+            {
+                "url":"sound/ambiance_cult.mp3",
+                "volume": 0.5
+            }
+        ],
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Cryptoist, I'm here to bargain !",
+                "next_state": "cult_leader",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Kill them all !",
+                "next_state": "main_cult_die",
+                "input": "Y"
+            }
+        ]
+    },
+    "cult_leader": {
+        "text": "As you say these phrases, the entire cult members stop their chanting and stare at you half horrified by the situation. The cult leader then says 'Bring him to me'.",
+        "img": "image/cult3.png",
+        "back_sound":"",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Where is the book ?",
+                "next_state": "cult_leader1",
+                "input": "Y"
+            }
+        ]
+    },
+    "cult_leader1": {
+        "text": "You're too late, he'll come back and it's not our fault! *evil laugh*",
+        "img": "image/cult_leader.png",
+        "sound":"sound/laught.mp3",
+        "back_sound":"",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Where is the book ???????",
+                "next_state": "cult_leader2",
+                "input": "Y"
+            }
+        ]
+    },
+    "cult_leader2": {
+        "text": "You catch the cult leader ready to fight him. He then tells you 'Your very dear Dean has come to retrieve the book in order to summon Bill herself because she would have visions of our master'",
+        "img": "image/cult_leader.png",
+        "sound":"sound/laught.mp3",
+        "back_sound":"",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "It's impossible...",
+                "next_state": "cult_leader3",
+                "input": "Y"
+            }
+        ]
+    },
+    "cult_leader3": {
+        "text": "Learning this puts you in a difficult state. The cult leader then says 'If you want to stop our master you should hurry up the clock is ticking'",
+        "img": "image/cult_leader.png",
+        "back_sound":"",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Leaving",
+                "next_state": "outside",
+                "input": "Y"
+            }
+        ]
+    },
+    "outside": {
+        "text": "When you go outside, the ground start moving and the sky turn red, you see a portal appeared in the sky. The Weirdmaggedon is back.",
+        "img": "image/img_intro1.gif",
+        "back_sound":"",
+        "music_sound":[
+            {
+                "url":"music/vault_music.mp3",
+                "volume":0.6
+            }
+        ],
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Hurry !",
+                "next_state": "inside_vault",
+                "input": "Y"
+            }
+        ]
+    },
+    "inside_vault": {
+        "text": "When you arrive in the vault they have started invocate Bill. What do you do ?",
+        "img": "image/vault_in.png",
+        "back_sound":[
+            {
+                "url":"sound/Bill laugh.mp3",
+                "volume":1
+            }
+        ],
+        "next_state": [
+            {
+                "type": "button",
+                "text": "STOP !",
+                "next_state": "bad_end",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Try to grab the book of Bill",
+                "next_state": "good_end",
+                "input": "Y"
+            }
+        ]
+    },
+    "bad_end": {
+        "text": "<h1>YOU CHOOSE THE BAD ENDING</h1>",
+        "back_sound":"",
+        "music_sound":"",
+        "mp4" : "video/bad_ending.mp4",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Restart !",
+                "next_state": "restart",
+                "input": "Y"
+            }
+        ]
+    },
+    "good_end": {
+        "text": "<h1>YOU CHOOSE THE GOOD ENDING, YOU WINN !!!!!!!!!!</h1>",
+        "back_sound":"",
+        "music_sound":
+        [
+            {
+                "url":"music/good.mp3",
+                "volume":0.5
+            }
+        ],
+        "next_state": [
+            {
+                "type": "button",
+                "text": "Restart !",
+                "next_state": "restart",
+                "input": "Y"
+            }
+        ]
+    },
+    "restart": {
+        "text": "<h1>DO YOU WANT TO RESTART ?</h1>",
+        "back_sound":"",
+        "music_sound":"",
+        "next_state": [
+            {
+                "type": "button",
+                "text": "YES !",
+                "next_state": "start",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "ABSOLUTLY YES !",
+                "next_state": "start",
+                "input": "Y"
+            },
+            {
+                "type": "button",
+                "text": "Are you kindind, YES !",
+                "next_state": "start",
+                "input": "Y"
+            }
+        ]
+    }
+}

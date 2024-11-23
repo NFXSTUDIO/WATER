@@ -1,0 +1,73 @@
+<html>
+<head>
+  <title>LABYRINTH</title>
+  <link rel="icon" href="cimgs/we.png">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+    canvas {
+      width: 100vw;
+      height: 100vh;
+    }
+    #loading-screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 24px;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="myCanvas"></canvas>
+  <div id="loading-screen">Loading...</div>
+  <script>
+    const canvas = document.getElementById('myCanvas');
+    const ctx = canvas.getContext('2d');
+    const loadingScreen = document.getElementById('loading-screen');
+
+    const video = document.createElement('video');
+    video.src = 'cimgs/intro.mp4'; // Replace with your video URL
+
+    function resizeVideoAndCanvas() {
+      const windowAspectRatio = window.innerWidth / window.innerHeight;
+      const videoAspectRatio = video.videoWidth / video.videoHeight;
+
+      // Determine how to scale the video to fit the canvas proportionally
+      if (windowAspectRatio > videoAspectRatio) {
+        canvas.width = window.innerWidth;
+        canvas.height = video.videoHeight * (canvas.width / video.videoWidth);
+      } else {
+        canvas.width = video.videoWidth * (window.innerHeight / video.videoHeight);
+        canvas.height = window.innerHeight;
+      }
+    }
+
+    window.addEventListener('resize', resizeVideoAndCanvas);
+    resizeVideoAndCanvas();
+
+    video.addEventListener('canplaythrough', () => {
+      loadingScreen.style.display = 'none'; // Hide the loading screen
+      video.play();
+
+      const intervalId = setInterval(() => {
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+      }, 1000 / 30);
+
+      video.addEventListener('ended', () => {
+        clearInterval(intervalId);
+        window.location.href = 'LABYRINTH.html';
+      });
+    });
+  </script>
+</body>
+</html>

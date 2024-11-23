@@ -1,0 +1,69 @@
+{
+
+   "start" : { 
+                "text": "<h1>Best DAMN game ever</h1>",
+                "next_state" : [ {
+                                    "type" : "button",
+                                    "text" : "Start",
+                                    "next_state" : "intro",
+                                    "input" : "Y"
+                                }
+                                ]
+                },
+    "intro" : {  
+                "mp4" : "/mp4/allstar.mp4",
+                "next_state" : [ {  
+                                    "type" : "button",
+                                    "text" : "Start",
+                                    "next_state" : "gstart",
+                                    "input" : "Y"
+                                }
+                                ]
+                },
+
+    "gstart" : {
+                "text": "<h1>GET OUT off MY SWAMP!!</h1>",
+                "img" : "/imgs/getoutswamp.gif",
+                "sound" : "/sounds/what-are-you-doing-in-my-swamp-.mp3",
+                "back_sound" : "/sounds/bkground.mp3",
+                "next_state" : [ {
+                                    "type" : "button",
+                                    "text" : "Leave Swamp",
+                                    "next_state" : "LeaveSwamp",
+                                    "input" : "Y"
+                                },
+                                { 
+                                    "text" : "Don't leave swamp",
+                                    "next_state" : "donot leave swamp",
+                                    "input" : "X" 
+                                }  
+
+                                ]
+                },
+    "LeaveSwamp" : { 
+                "text": "Good Choice",
+                "img" : "/imgs/man.jpg",
+                "back_sound" : "",
+                "next_state" : [ {
+                                    "text" : "Play Again!!!",
+                                    "next_state" : "start",
+                                    "input" : "Y" 
+                                }
+                                ]   
+                },
+    "donot leave swamp" : { 
+                "text": "You SUCK!!!!",
+                "img" : "/imgs/nooo.jpg",
+                "back_sound" : "",
+                "next_state" : [ { 
+                                    "text" : "Play Again!!!",
+                                    "next_state" : "start",
+                                    "input" : "Y" 
+                                }
+                                ]   
+                }   
+
+
+
+}
+

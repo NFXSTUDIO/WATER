@@ -1,0 +1,108 @@
+<html>
+
+<head>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div id="my_text"  ><h1>Hello shrek</h1></div>
+
+<video  id="my_video" autoplay>
+  Your browser does not support the video tag.
+</video>
+
+<img id="my_img" src="" />
+
+<div id="my_options"></div>
+
+<script>
+
+var current_state = 'start';
+var our_game_data = null;
+var bk_audio;
+
+function visit_state(){
+
+    var video = $('#my_video')[0];
+    video.pause();
+    $('#my_video').hide();
+
+    if( our_game_data[current_state]['mp4'] != null){
+        $('#my_video').show();
+        video.src = our_game_data[current_state]['mp4'];
+        video.load();
+        video.play();
+    }
+
+    if( our_game_data[current_state]['text'] != null){
+        $('#my_text').html(our_game_data[current_state]['text']);
+        $('#my_text').show(); 
+    }else{
+        $('#my_text').html('');
+        $('#my_text').hide(); 
+    }
+
+    if( our_game_data[current_state]['img'] != null){
+        $("#my_img").attr("src",our_game_data[current_state]['img']);
+        $('#my_img').show(); 
+    }else{
+        $('#my_img').hide(); 
+    }
+
+    if( our_game_data[current_state]['sound'] != null){
+        var audio = new Audio(our_game_data[current_state]['sound']);
+        audio.play();
+    }
+
+    
+    if( our_game_data[current_state]['back_sound'] != null){
+        if( our_game_data[current_state]['back_sound'] == ''){
+            bk_audio.pause();
+        } 
+        bk_audio = new Audio(our_game_data[current_state]['back_sound']);
+        bk_audio.play();
+
+        bk_audio.addEventListener('timeupdate', function(){
+            var buffer = .44
+            if(this.currentTime > this.duration - buffer){
+            this.currentTime = 0
+            this.play()
+        }
+        });
+        
+    }
+    
+    
+    if( our_game_data[current_state]['next_state'] != null){
+        options = our_game_data[current_state]['next_state']
+        options_len = options.length
+        build_html= "";
+        for( i =0 ;i < options_len; i++){
+            build_html = build_html + "<button onclick=' current_state = ";
+            build_html = build_html + '"' + options[i]['next_state'] +'";' 
+            build_html = build_html + "visit_state();" + "'";
+            build_html = build_html + ">" + options[i]['text'];
+            build_html = build_html + "</button> <br>\n";
+        }
+        console.log(build_html);
+        $('#my_options').html(build_html);
+    }
+    
+}
+
+$( document ).ready(function() {
+    setTimeout(function(){
+
+        $.getJSON( "game_def.json", function( data ) {
+            our_game_data = data;
+            visit_state();
+        });
+      }, 1000);    
+
+});
+
+</script>
+
+</body>
+
+</html>
